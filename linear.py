@@ -1,4 +1,4 @@
-from cgi import print_exception
+from cgi import print_exception, test
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as pt
@@ -23,7 +23,23 @@ print(df.head())
 
 print(df.corr())
 
-x = df[:, [0]]
-# y = df['math score', 'reading score', 'writing score']
-print(x.head())
-print(y.head())
+x = df.iloc[:, :-3].values
+print(x)
+y = df.iloc[:, -3:]
+print(y)
+
+from sklearn.model_selection import train_test_split
+
+x_tr, x_t, y_tr, y_t = train_test_split(x, y, test_size=0.2, random_state=69)
+from sklearn.linear_model import LinearRegression
+
+reg = LinearRegression()
+reg.fit(x_tr, y_tr)
+y_pr = reg.predict(x_t)
+
+res_err = y_t - y_pr
+
+pt.scatter(y_t, y_pr, c='Blue')
+pt.xlabel('True')
+pt.ylabel('Res. Error')
+pt.show()
