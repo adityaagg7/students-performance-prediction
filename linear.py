@@ -36,3 +36,8 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(x_tr, y_tr)
 y_pr = reg.predict(x_t)
+
+from sklearn.metrics import r2_score
+
+r2 = r2_score(y_t, y_pr)
+print(r2)
