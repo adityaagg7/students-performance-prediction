@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as pt
 
 df = pd.read_csv('data/StudentsPerformance.csv')
-
+df = df.iloc[:, :-2]
 print(df.shape)
 print(df.head())
 print(df.nunique(0))
@@ -23,10 +23,10 @@ print(df.head())
 
 print(df.corr())
 
-x = df.iloc[:, :-3].values
-print(x)
-y = df.iloc[:, -3:]
-print(y)
+x = df.iloc[:, :-1].values
+print(x.shape)
+y = df.iloc[:, -1].values
+print(y.shape)
 
 from sklearn.model_selection import train_test_split
 
@@ -37,7 +37,12 @@ reg = LinearRegression()
 reg.fit(x_tr, y_tr)
 y_pr = reg.predict(x_t)
 
+pt.scatter(y_t, y_t - y_pr)
+pt.xlabel('True Value')
+pt.ylabel('Error')
+pt.show()
+
 from sklearn.metrics import r2_score
 
 r2 = r2_score(y_t, y_pr)
-print(r2)
+print("R2 for maths score:", r2)
