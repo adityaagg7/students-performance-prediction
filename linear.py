@@ -36,10 +36,3 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(x_tr, y_tr)
 y_pr = reg.predict(x_t)
-
-res_err = y_t - y_pr
-
-pt.scatter(y_t, y_pr, c='Blue')
-pt.xlabel('True')
-pt.ylabel('Res. Error')
-pt.show()
