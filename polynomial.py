@@ -1,3 +1,5 @@
+from turtle import color
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -31,14 +33,19 @@ print(x.shape)
 y = df.iloc[:, -1].values
 print(y.shape)
 
+poly_feat = PolynomialFeatures(3)
+x_poly = poly_feat.fit_transform(x)
 
-x_tr, x_t, y_tr, y_t = train_test_split(x, y, test_size=0.2, random_state=69)
+print(x_poly.shape)
+
+x_tr, x_t, y_tr, y_t = train_test_split(
+    x_poly, y, test_size=0.2, random_state=69)
 
 reg = LinearRegression()
 reg.fit(x_tr, y_tr)
 y_pr = reg.predict(x_t)
 
-pt.scatter(y_t, y_t - y_pr)
+pt.scatter(y_t, y_t - y_pr, c='red')
 pt.xlabel('True Value')
 pt.ylabel('Error')
 pt.show()
