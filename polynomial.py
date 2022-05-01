@@ -4,7 +4,6 @@ from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from cgi import print_exception, test
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as pt
