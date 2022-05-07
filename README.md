@@ -13,13 +13,23 @@ All the feature columns are categorical and hence are label encoded prior to fit
 
 The results of various different models are discussed below:
 
- ## Linear:
+## Linear:
 &nbsp;Tried to fit the data in a Linear Regression model.
 
 &nbsp;Large amount of error is seen:
 
 !["Plot of True Y and Error"](data/SS_Linear.png "Plot of True Y and Error")
 
-## *R2 value comes out &rarr; **0.19308861560707336***
+## *R<sup>2</sup> value comes out &rarr; **0.19308861560707336***
+
+## Polynomial:
+When the data was fit in a polynomial model, the results are worse than linear for higher degrees of the features. 
+
+For degree=3, 
+
+!["Plot of True Y and Error(POLYNOMIAL)"](data/SS_POLY.png "Plot of True Y and Error")
+## *R<sup>2</sup> value comes out &rarr; **0.11539991529590632***
+
+
 
 
