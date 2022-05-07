@@ -27,6 +27,7 @@ When the data was fit in a polynomial model, the results are worse than linear f
 
 For degree=3, 
 
+!["Plot of True Y and Error(POLYNOMIAL)"](data/SS_POLY.png "Plot of True Y and Error")
 ## *R<sup>2</sup> value comes out &rarr; **0.11539991529590632***
 
 
