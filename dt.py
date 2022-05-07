@@ -1,5 +1,5 @@
 from sklearn.metrics import r2_score
-from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from cgi import print_exception, test
@@ -34,7 +34,7 @@ print(y.shape)
 
 x_tr, x_t, y_tr, y_t = train_test_split(x, y, test_size=0.2, random_state=69)
 
-reg = LinearRegression()
+reg = DecisionTreeRegressor()
 reg.fit(x_tr, y_tr)
 y_pr = reg.predict(x_t)
 
